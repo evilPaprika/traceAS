@@ -14,7 +14,7 @@ def trace_route(target):
         AS_data = "***"
         if hop_ip:
             AS_data = get_AS_data(hop_ip.group(1))
-        print("{0}{2}{1:<40}".format(line[:-2], AS_data, " " * (80 - len(line))))
+        print("{0} {2}{1:<40}".format(line[:-2], AS_data, " " * (80 - len(line))))
 
 def get_AS_data(ip):
     data = dict(json.loads(urlopen(f'http://ipinfo.io/{ip}/json').read()))
